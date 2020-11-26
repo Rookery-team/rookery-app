@@ -1,0 +1,142 @@
+.settings {
+}
+
+.settings__split {
+  display: grid;
+  grid-gap: 40px;
+  grid-template-columns: 250px 1fr;
+}
+
+@media (max-width: 800px) {
+  .settings__split {
+    grid-template-columns: 200px 1fr;
+  }
+}
+
+@media (max-width: 800px) {
+  .settings__split {
+    display: block;
+  }
+}
+
+.settings__nav {
+}
+
+@media (max-width: 800px) {
+  .settings__nav {
+    display: none;
+  }
+}
+
+.settings__nav ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 20px 0;
+
+  list-style: none;
+}
+
+.settings__nav ul li {
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.settings__nav ul li a {
+  display: flex;
+  align-items: center;
+  padding: 10px 16px 12px;
+
+  color: var(--settings--nav--list--item--link--color);
+
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.5;
+  text-decoration: none;
+
+  background-color: var(--settings--nav--list--item--link--background-color);
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  transition: 120ms;
+}
+
+.settings__nav ul li a:hover,
+.settings__nav ul li.--active a {
+  color: var(--settings--nav--list--item--active--link--color);
+}
+
+.settings__nav ul li a:hover {
+  background-color: var(--settings--nav--list--item--link--hover--background-color);
+}
+
+.settings__nav ul li.--active a {
+  font-weight: bold;
+
+  background-color: var(--settings--nav--list--item--active--link--background-color);
+}
+
+.settings__nav ul li a span {
+  flex: 1;
+}
+
+.settings__nav ul li a::after {
+  display: inline-block;
+
+  width: 0;
+  height: 0;
+
+  border-color: var(--settings--nav--list--item--link--after--border-color);
+  border-style: solid;
+  border-width: 5px 0 5px 9px;
+
+  transition: 200ms border-color;
+
+  content: "";
+}
+
+.settings__nav ul li a:hover::after,
+.settings__nav ul li.--active a::after {
+  border-color: var(--settings--nav--list--item--link--active--after--border-color);
+}
+
+.settings__content {
+}
+
+.settings__content > section {
+  padding-top: 28px;
+  padding-bottom: 50px;
+}
+
+.settings__content > section > hr {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  border-top: 1px solid var(--settings--content--section--hr--border-color);
+  border-right: none;
+  border-bottom: none;
+  border-left: none;
+}
+
+.settings__content__wrap {
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
+.settings__title {
+  margin-top: 18px;
+  margin-bottom: 0;
+
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 2;
+}
+
+.settings__help {
+  margin-top: 3px;
+  margin-bottom: 0;
+
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 1.5;
+}

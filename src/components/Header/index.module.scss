@@ -1,0 +1,56 @@
+$background: white;
+$color: white;
+$height: 3rem;
+$padding-y: 1rem;
+
+.main {
+    background: transparent;
+    color: $color;
+
+    width: 100%;
+    height: $height;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+.affix {
+    background: $background;
+    color: $color;
+}
+
+
+
+.container {
+    width: 94%;
+    height: 100%;
+
+    margin: auto;
+    padding: $padding-y 0;
+
+    display: flex;
+}
+
+
+
+.logo {
+    height: calc(100% + 2rem);
+
+    object-fit: cover;
+
+    transform: translate(0, -$padding-y);
+
+    position: relative;
+}
+
+
+
+.menus {
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    place-items: center flex-end;
+}
