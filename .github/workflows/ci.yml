@@ -1,0 +1,42 @@
+# Fichier inspiré du répertoire actions/setup-node : https://github.com/actions/setup-node
+
+name: Continuous Integration
+
+on:
+  pull_request:
+    paths-ignore:
+      - '**.md'
+  push:
+    branches:
+      - main
+      - releases/*
+      - features/*
+    paths-ignore:
+      - '**.md'
+
+jobs:
+  quality:
+    name: Quality checks
+#    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-latest, windows-latest, macos-latest ]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup node 15
+          uses: actions/setup-node@v2
+          with:
+            node-version: 15.x
+
+      - name: Install dependencies
+        run: yarn install --no-interaction
+
+      - name: Check quality for NPM
+        run: npm ci
+
+      - name: Build source code
+        run: yarn build
+
+      - name: Run tests
+        run: yarn test -- --watchAll=false
