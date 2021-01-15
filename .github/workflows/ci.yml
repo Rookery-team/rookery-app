@@ -1,6 +1,6 @@
 # Fichier inspiré du répertoire actions/setup-node : https://github.com/actions/setup-node
 
-name: Continuous Integration
+name: "Continuous Integration"
 
 on:
   pull_request:
