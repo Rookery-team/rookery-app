@@ -39,6 +39,7 @@
     "eslint-plugin-unicorn": "^12.1.0",
     "gh-pages": "^3.1.0",
     "prettier": "^1.19.1",
+    "test": "^0.6.0",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.3.0",
@@ -50,7 +51,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "pre-checkin": "npm run format && npm run build && npm test"
   },
   "eslintConfig": {
     "extends": [

@@ -30,13 +30,13 @@ jobs:
             node-version: 15.x
 
       - name: Install dependencies
-        run: yarn install --no-interaction
+        run: npm install --no-interaction
 
       - name: Check quality for NPM
         run: npm ci
 
       - name: Build source code
-        run: yarn build
+        run: npm run build
 
       - name: Run tests
-        run: yarn test -- --watchAll=false
+        run: npm test -- --watchAll=false
