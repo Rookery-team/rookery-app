@@ -1,25 +1,23 @@
 {
   "files": {
-    "main.css": "/rookery-app/static/css/main.49d9cbf4.chunk.css",
-    "main.js": "/rookery-app/static/js/main.b3ce50ad.chunk.js",
-    "main.js.map": "/rookery-app/static/js/main.b3ce50ad.chunk.js.map",
-    "runtime-main.js": "/rookery-app/static/js/runtime-main.3b0bc577.js",
-    "runtime-main.js.map": "/rookery-app/static/js/runtime-main.3b0bc577.js.map",
-    "static/css/2.de71bbd8.chunk.css": "/rookery-app/static/css/2.de71bbd8.chunk.css",
-    "static/js/2.aa112d49.chunk.js": "/rookery-app/static/js/2.aa112d49.chunk.js",
-    "static/js/2.aa112d49.chunk.js.map": "/rookery-app/static/js/2.aa112d49.chunk.js.map",
-    "static/js/3.4c85d498.chunk.js": "/rookery-app/static/js/3.4c85d498.chunk.js",
-    "static/js/3.4c85d498.chunk.js.map": "/rookery-app/static/js/3.4c85d498.chunk.js.map",
+    "main.css": "/rookery-app/static/css/main.59d92759.chunk.css",
+    "main.js": "/rookery-app/static/js/main.6b711967.chunk.js",
+    "main.js.map": "/rookery-app/static/js/main.6b711967.chunk.js.map",
+    "runtime-main.js": "/rookery-app/static/js/runtime-main.be5c552a.js",
+    "runtime-main.js.map": "/rookery-app/static/js/runtime-main.be5c552a.js.map",
+    "static/js/2.62f45252.chunk.js": "/rookery-app/static/js/2.62f45252.chunk.js",
+    "static/js/2.62f45252.chunk.js.map": "/rookery-app/static/js/2.62f45252.chunk.js.map",
+    "static/js/3.4056242d.chunk.js": "/rookery-app/static/js/3.4056242d.chunk.js",
+    "static/js/3.4056242d.chunk.js.map": "/rookery-app/static/js/3.4056242d.chunk.js.map",
     "index.html": "/rookery-app/index.html",
-    "static/css/2.de71bbd8.chunk.css.map": "/rookery-app/static/css/2.de71bbd8.chunk.css.map",
-    "static/css/main.49d9cbf4.chunk.css.map": "/rookery-app/static/css/main.49d9cbf4.chunk.css.map",
-    "static/js/2.aa112d49.chunk.js.LICENSE.txt": "/rookery-app/static/js/2.aa112d49.chunk.js.LICENSE.txt"
+    "static/css/main.59d92759.chunk.css.map": "/rookery-app/static/css/main.59d92759.chunk.css.map",
+    "static/js/2.62f45252.chunk.js.LICENSE.txt": "/rookery-app/static/js/2.62f45252.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/rookery-app/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.3b0bc577.js",
-    "static/css/2.de71bbd8.chunk.css",
-    "static/js/2.aa112d49.chunk.js",
-    "static/css/main.49d9cbf4.chunk.css",
-    "static/js/main.b3ce50ad.chunk.js"
+    "static/js/runtime-main.be5c552a.js",
+    "static/js/2.62f45252.chunk.js",
+    "static/css/main.59d92759.chunk.css",
+    "static/js/main.6b711967.chunk.js"
   ]
 }
