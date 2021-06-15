@@ -1,15 +1,15 @@
 import React from 'react';
-import './index.css';
+import styles from './index.module.scss';
 
 const CGU = () => {
-  return (
-    <div>
-      <h1 className="cgu_title">CGU</h1>
-      <div className="cgu_body">
-        <h2>Bonjour !</h2>
-      </div>
-    </div>
-  );
+    return (<>
+
+        {/* Section entête */}
+        <section className={styles.section_header}>
+            <h1>Conditions&nbsp;Générales de&nbsp;Vente</h1>
+        </section>
+
+    </>);
 };
 
 export default CGU;

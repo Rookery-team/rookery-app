@@ -1,0 +1,113 @@
+.login {
+  @apply flex flex-row-reverse place-items-center place-content-end;
+  @apply min-h-screen;
+  @apply bg-gray-600 bg-no-repeat bg-cover bg-center;
+  background-image: url(https://picsum.photos/1280/800);
+
+  label {
+    @apply inline-block;
+    @apply mb-2;
+    @apply font-medium text-sm leading-normal;
+    @apply uppercase;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    letter-spacing: 1.4px;
+  }
+
+  p {
+    @apply w-full;
+    @apply text-gray-800 font-normal text-base leading-normal text-center;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+  }
+
+  a {
+    @apply text-gray-800;
+  }
+
+  form {
+    @apply box-border;
+    @apply w-1/2 min-h-screen;
+    @apply flex place-items-center place-content-center flex-col gap-3;
+    @apply m-0 p-8;
+    @apply bg-white;
+    @apply border-0 rounded-3xl rounded-r-none;
+    @apply shadow;
+    @apply relative;
+    @apply overflow-hidden;
+
+    h1 {
+      @apply text-3xl leading-normal;
+    }
+
+    .btn {
+      @apply w-auto h-auto;
+      @apply mb-4 px-3 py-5;
+      @apply bg-gray-200;
+      @apply text-gray-800 font-semibold text-xl;
+      @apply leading-normal text-center;
+      @apply rounded;
+      font-family: "Poppins", sans-serif;
+      font-style: normal;
+    }
+  }
+}
+
+.groups {
+  @apply w-full;
+  @apply flex flex-wrap gap-8;
+
+  > div {
+    flex: 0 100%;
+  }
+}
+
+/*@media screen and (max-width: 600px) {
+  .groups > div {
+    flex: 0 100%;
+  }
+
+  .login form {
+    margin: 20px 10px 10px;
+    @apply p-4;
+  }
+}*/
+
+.group {
+  @apply mb-4 px-16;
+
+  > input {
+    @apply h-16;
+    @apply px-3 py-4;
+    @apply transition;
+    @apply border-0 border-gray-800;
+    @apply shadow-md;
+
+    &:focus {
+      @apply border-2;
+    }
+  }
+}
+
+/*.group input:focus {
+  border-color: var(--group--border-color);
+}*/
+
+.control {
+  @apply block;
+  @apply w-full;
+  @apply px-1 py-3;
+  @apply text-gray-800 text-base leading-normal;
+  @apply bg-white;
+  @apply bg-clip-padding;
+  @apply border-2 border-gray-800;
+  @apply rounded;
+  @apply transition;
+}
+
+.btn:disabled {
+  color: var(--button--disabled--color);
+
+  background-color:  var(--button--disabled--background-color);
+  opacity: 0.2;
+}

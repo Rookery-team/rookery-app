@@ -5,63 +5,111 @@ import {Link} from "react-router-dom";
 const Welcome = () => {
     return (
         <>
+            {/* Section entête */}
             <header className={styles.header}>
+                {/* Container */}
                 <div className={styles.header_container}>
+
+                    {/* Main message */}
                     <p className={styles.header_mainMessage}>
-                        Retrouver nos incroyables<br/>documentaires
+                        Retrouver nos&nbsp;incroyables documentaires
                     </p>
+
+                    {/* Sub main message */}
                     <p className={styles.header_subMainMessage}>
-                        A tout moment, où que vous soyez
+                        A&nbsp;tout&nbsp;moment, où&nbsp;que vous&nbsp;soyez
                     </p>
+
+                    {/* Input group */}
                     <div className={styles.header_headerInputGroup}>
-                        <input type="email" className={styles.header_headerInput}/>
+                        <input type="email" />
                         <button>Commencer</button>
                     </div>
+
                 </div>
             </header>
+
+            {/* Section fonctionnalité */}
             <section className={styles.features}>
+
+                {/* Feature */}
                 <div className={styles.feature}>
+                    {/* Container */}
                     <div className={styles.feature_container}>
+
+                        {/* Content */}
                         <div className={styles.feature_content}>
-                            <span className={styles.feature_title}>Regarder Rookery<br/>sur votre télé</span>
-                            <span className={styles.feature_subtitle}>Regarder sur votre télé, ordinateur,<br />téléphones et bien plus</span>
+                            {/* Title */}
+                            <span className={styles.feature_title}>Regarder&nbsp;Rookery sur&nbsp;votre&nbsp;télé</span>
+                            {/* Subtitle */}
+                            <span className={styles.feature_subtitle}>Regarder&nbsp;sur votre&nbsp;télé, ordinateur, téléphones et&nbsp;bien&nbsp;plus encore</span>
                         </div>
+
+                        {/* Image */}
                         <div className={styles.feature_image}>
-                            <img src="http://picsum.photos/1024/576" alt=""/>
+                            <img src="http://picsum.photos/1024/576" alt="" />
                         </div>
                     </div>
                 </div>
+
+                {/* Feature even */}
                 <div className={styles.featureEven}>
+                    {/* Container */}
                     <div className={styles.featureEven_container}>
+
+                        {/* Content */}
                         <div className={styles.featureEven_content}>
-                            <span className={styles.featureEven_title}>Profiter des<br/>documentaires</span>
-                            <span className={styles.featureEven_subtitle}>où que vous soyez</span>
+                            {/* Title */}
+                            <span className={styles.featureEven_title}>Profiter des&nbsp;documentaires</span>
+                            {/* Subtitle */}
+                            <span className={styles.featureEven_subtitle}>où&nbsp;que vous&nbsp;soyez</span>
                         </div>
+
+                        {/* Image */}
                         <div className={styles.featureEven_image}>
-                            <img src="http://picsum.photos/1024/576" alt=""/>
+                            <img src="http://picsum.photos/1024/576" alt="" />
                         </div>
                     </div>
                 </div>
+
+                {/* Feature alternative */}
                 <div className={styles.featureAlternative}>
+                    {/* Container */}
                     <div className={styles.feature_container}>
+
+                        {/* Content */}
                         <div className={styles.feature_content}>
-                            <span className={styles.feature_title}>Rejoignez<br/>la communauté</span>
+                            {/* Title */}
+                            <span className={styles.feature_title}>Rejoignez<br />la communauté</span>
+                            {/* Subtitle */}
                             <span className={styles.feature_subtitle}>
-                                en partageant votre avis<br/>et en discutant sur le fil d'actualité
+                                en&nbsp;partageant votre&nbsp;avis et en&nbsp;discutant&nbsp;sur le&nbsp;fil&nbsp;d'actualité
                             </span>
                         </div>
+
                     </div>
                 </div>
+
+                {/* Feature even */}
                 <div className={styles.featureEven}>
+                    {/* Container */}
                     <div className={styles.featureEven_container}>
+
+                        {/* Content */}
                         <div className={styles.featureEven_content}>
-                            <span className={styles.featureEven_title}>Participer<br/>aux cagnottes</span>
+                            {/* Title */}
+                            <span className={styles.featureEven_title}>
+                                Participer aux&nbsp;cagnottes
+                            </span>
+                            {/* Subtitle */}
                             <span className={styles.featureEven_subtitle}>
-                                et sauver des oiseaux<br/>en voie de disparition
+                                et&nbsp;sauver des&nbsp;oiseaux en&nbsp;voie de&nbsp;disparition
                             </span>
                         </div>
+
+                        {/* Image */}
                         <div className={styles.featureEven_image}>
-                            <img src="http://picsum.photos/1024/576" alt=""/>
+                            <img src="http://picsum.photos/1024/576" alt="" />
                         </div>
                     </div>
                 </div>

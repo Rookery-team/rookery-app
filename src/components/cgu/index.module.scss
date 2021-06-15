@@ -1,0 +1,9 @@
+.section_header {
+  height: clamp(18rem, 10vh, 30rem);
+  @apply grid place-items-center;
+  @apply text-white bg-gray-700;
+
+  > h1 {
+    @apply text-6xl;
+  }
+}

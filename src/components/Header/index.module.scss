@@ -1,56 +1,44 @@
 $background: white;
-$color: white;
-$height: 3rem;
-$padding-y: 1rem;
 
-.main {
+.navigation {
     background: transparent;
-    color: $color;
+    @apply text-white;
 
-    width: 100%;
-    height: $height;
+    @apply w-full h-16;
 
-    position: sticky;
-    top: 0;
+    @apply sticky top-0;
 
     z-index: 100;
-}
 
-.affix {
-    background: $background;
-    color: $color;
+    &[data-affix="true"] {
+        @apply bg-white;
+        @apply text-black;
+    }
 }
-
 
 
 .container {
     width: 94%;
-    height: 100%;
+    @apply h-full;
 
-    margin: auto;
-    padding: $padding-y 0;
+    @apply m-auto p-1;
 
-    display: flex;
+    @apply flex;
 }
 
 
 
 .logo {
-    height: calc(100% + 2rem);
-
-    object-fit: cover;
-
-    transform: translate(0, -$padding-y);
-
-    position: relative;
+    @apply relative;
+    @apply block;
+    @apply w-auto h-full;
+    @apply object-cover;
 }
 
 
 
 .menus {
-    width: 100%;
-    height: 100%;
-
-    display: grid;
+    @apply w-full h-full;
+    @apply grid;
     place-items: center flex-end;
 }

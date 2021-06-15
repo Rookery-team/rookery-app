@@ -1,4 +1,5 @@
-﻿import React, {useState} from 'react';
+﻿import React, {useState} from 'react'
+import ReactDOM from 'react-dom'
 
 import View from './login-view.js';
 
@@ -18,7 +19,7 @@ const Login = ({handleUserSession}) => {
     };
 
     const resetPassword = () => {
-        fetch(process.env.REACT_APP_BACK_URL + '/api/password/request', {
+        fetch(process.env.REACT_APP_BACK_URL + 'api/password/request', {
             headers: {
                 Accept: 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
@@ -28,9 +29,13 @@ const Login = ({handleUserSession}) => {
                 email: state.email
             })
         }).then(() => {
-            setState(current => ({...current,
+            setState(current => ({
+                ...current,
                 error:
-                    'Si votre compte existe, un email vous a été envoyé avec des indications pour récupérer votre mot de passe'
+                    'Si votre compte existe, ' +
+                    'un email vous a été envoyé ' +
+                    'avec des indications ' +
+                    'pour récupérer votre mot de passe'
             }));
         });
     };
@@ -40,23 +45,28 @@ const Login = ({handleUserSession}) => {
 
         setState(current => ({...current, error: ''}));
 
-        fetch(process.env.REACT_APP_BACK_URL + '/oauth/token', {
+        const loadingScreen = document.querySelector('[aria-label="Loading Screen"]')
+
+        loadingScreen.classList.remove('hidden')
+
+        fetch(process.env.REACT_APP_BACK_URL + 'api/login_check', {
             headers: {
                 Accept: 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
             method: 'POST',
             body: JSON.stringify({
                 username: state.email,
                 password: state.password,
-                grant_type: 'password',
-                client_id: process.env.REACT_APP_CLIENT_ID,
-                client_secret: process.env.REACT_APP_CLIENT_SECRET,
-                scope: ''
+                // client_id: process.env.REACT_APP_CLIENT_ID,
+                // client_secret: process.env.REACT_APP_CLIENT_SECRET
             })
         })
             .then(response => response.json())
             .then(session => {
+
+                console.log({session})
 
                 if (!session.error) {
                     handleUserSession(session); // Will redirect
@@ -69,6 +79,9 @@ const Login = ({handleUserSession}) => {
                     error: 'Identifiants erronés'
                 }));
 
+            })
+            .finally(() => {
+                loadingScreen.classList.add('hidden')
             });
     };
 

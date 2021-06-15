@@ -1,10 +1,24 @@
+
 .App {}
 
 .page {
-  min-height: 100vh;
+  @apply transform -translate-y-16;
+  @apply min-h-screen relative inset-0;
+}
 
-  position: relative;
-  inset: 0;
+:global {
+  [aria-label="Loading Screen"] {
+    @apply absolute inset-0;
+    @apply place-content-center;
+    background-color: #000000A0;
 
-  margin-top: -3rem;
+    &:not(.hidden) {
+      @apply grid;
+    }
+
+    svg {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
 }

@@ -1,27 +1,20 @@
 .header {
-  height: 100%;
-  min-height: 100vh;
+  @apply h-full;
+  min-height: 60vh;
 
-  background-color: #333;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  @apply bg-gray-400;
+  @apply bg-center bg-cover bg-no-repeat;
+
   background-image: url(http://picsum.photos/1024/576);
   color: white;
 
-  display: flex;
-  place-items: center;
-
-  position: relative;
+  @apply flex place-items-center;
+  @apply relative;
 
   &:before {
-    height: 100%;
-    width: 100%;
-
-    display: block;
-
-    position: absolute;
-    inset: 0;
+    @apply h-full w-full;
+    @apply block;
+    @apply absolute inset-0;
 
     background: #00000070;
 
@@ -31,59 +24,64 @@
   }
 
   &_container {
-    display: flex;
+    @apply flex flex-col;
     place-items: start center;
-    flex-direction: column;
 
-    height: 100%;
+    @apply h-full;
     width: 94%;
 
-    margin: auto;
+    @apply m-auto;
 
     z-index: 2;
   }
 
   &_mainMessage {
-    font-size: 2rem;
-
-    margin: 0 0 1.25rem;
+    @apply text-4xl;
+    @apply m-0 mb-5;
+    width: 25ch;
   }
 
   &_subMainMessage {
-    font-size: 1.25rem;
-
-    margin: 0 0 1.25rem;
+    @apply text-xl;
+    @apply m-0 mb-5;
   }
 
-  &_headerInputGroup {}
+  &_headerInputGroup {
 
-  &_headerInput {}
+    @apply flex;
+
+    & > input {
+      @apply appearance-none block;
+      @apply w-full h-auto;
+      @apply bg-gray-200 text-gray-800;
+      @apply border border-gray-200 rounded-lg rounded-r-none;
+      @apply px-4;
+    }
+
+    > button {
+      @apply px-4 py-2;
+      @apply bg-gray-400 text-gray-800;
+      @apply border border-gray-200 rounded-lg rounded-l-none;
+    }
+  }
 }
 
 
 .features {
-  height: 100%;
-  min-height: 100vh;
-
-  /*background: darkgreen;
-  color: white;*/
-
-  display: flex;
-  // place-items: flex-start center;
-  flex-direction: column;
-
-  // margin-top: 6.25rem;
+  @apply h-full;
+  min-height: 60vh;
+  @apply flex flex-col;
 }
 
 .feature, .featureAlternative, .featureEven {
-  display: flex;
-  place-items: center;
+  @apply flex place-items-center;
+  @apply relative;
 
-  height: 20vh;
+  height: clamp(30rem, 20vh, 50rem);
 
-  position: relative;
+  //height: 20vh;
 
-  @media screen and (max-height: 1600px - 1) {
+  /*@media screen and (max-height: 1600px - 1) {
     height: 20vh;
   }
 
@@ -93,78 +91,61 @@
 
   @media screen and (max-height: 960px - 1) {
     height: 50vh;
-  }
+  }*/
 
   @media screen and (max-width: 480px - 1) {
-    flex-direction: column;
-    height: auto;
+    @apply flex-col h-auto;
   }
 
   &_container {
-    display: flex;
-    place-items: center;
-
-    margin: auto;
-
+    @apply flex place-items-center;
+    @apply m-auto;
+    @apply h-full;
     width: 94%;
-    height: 100%;
-
     z-index: 2;
   }
 
   &_content {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    place-content: center;
-    place-items: flex-start;
+    @apply w-full h-full;
+    @apply flex flex-col gap-6 place-content-center place-items-start;
   }
 
   &_image {
-    width: 100%;
-    height: 100%;
-
-    display: flex;
-    place-items: center;
+    @apply w-full h-full;
+    @apply flex place-items-center;
 
     > img {
+      @apply block;
       max-height: 90%;
       max-width: 90%;
-      display: block;
 
-      object-fit: contain;
-      margin: auto 0 auto auto;
+      @apply object-contain;
+      @apply m-auto mr-auto;
     }
   }
 
   &_title {
-    font-size: 2rem;
-    font-weight: 700;
+    @apply text-4xl font-bold;
   }
 
   &_subtitle {
-    font-size: 1.35rem;
+    @apply text-xl;
   }
 }
 
 .featureAlternative {
-  color: white;
   background-image: url(https://picsum.photos/1280/800);
-  background-color: #333;
-  background-size: cover;
-  background-position: center;
+  @apply text-white;
+  @apply bg-gray-600 bg-cover bg-center;
 
   &:before {
     height: 100%;
     width: 100%;
-    display: block;
 
-    position: absolute;
-    top: 0;
-    left: 0;
+    @apply h-full w-full;
+    @apply block;
+
+    @apply absolute inset-0;
 
     background-image: linear-gradient(to right, #000000CC 0%, #000000AA 33.3334%, transparent 100%);
 
@@ -175,20 +156,20 @@
 }
 
 .featureEven {
-  background: gainsboro;
+  @apply bg-gray-400;
 
   &_container {
-    flex-direction: row-reverse;
+    @apply flex-row-reverse;
   }
 
   &_content {
-    place-items: flex-end;
-    text-align: right;
+    @apply place-items-end;
+    @apply text-right;
   }
 
   &_image {
     & > img {
-      margin: auto auto auto 0;
+      @apply m-auto ml-0;
     }
   }
 }

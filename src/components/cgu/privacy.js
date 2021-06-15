@@ -1,15 +1,15 @@
 import React from 'react';
-import './index.css';
+import styles from './index.module.scss';
 
 const Privacy = () => {
-  return (
-    <div>
-      <h1 className="cgu_title">Protection des données</h1>
-      <div className="cgu_body">
-        <h2>À venir</h2>
-      </div>
-    </div>
-  );
+    return (<>
+
+        {/* Section entête */}
+        <section className={styles.section_header}>
+            <h1>Protection des données</h1>
+        </section>
+
+    </>);
 };
 
 export default Privacy;
