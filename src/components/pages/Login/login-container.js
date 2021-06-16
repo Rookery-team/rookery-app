@@ -53,7 +53,8 @@ const Login = ({handleUserSession}) => {
             headers: {
                 Accept: 'application/json, text/plain, */*',
                 'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Max-Age': 600
             },
             method: 'POST',
             body: JSON.stringify({
@@ -61,7 +62,8 @@ const Login = ({handleUserSession}) => {
                 password: state.password,
                 // client_id: process.env.REACT_APP_CLIENT_ID,
                 // client_secret: process.env.REACT_APP_CLIENT_SECRET
-            })
+            }),
+            // redirect: 'follow'
         })
             .then(response => response.json())
             .then(session => {

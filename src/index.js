@@ -8,7 +8,7 @@ import ScrollMemory from 'react-router-scroll-memory';
 
 import './index.css';
 
-import App from './components/App';
+import App from './components/layouts/App';
 
 import reportWebVitals from './scripts/reportWebVitals';
 

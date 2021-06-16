@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import {withRouter} from 'react-router-dom';
+import {useHistory, withRouter} from 'react-router-dom';
 
 import Footer from '../Footer';
 import Header from '../Header';
-import Routes from '../../routes/Routes.js';
+import Routes from '../../../routes/Routes.js';
 
 import styles from './index.module.scss';
 
@@ -15,6 +15,8 @@ const App = withRouter(({location}) => {
     // Strate Affix: Navbar affix ou non lors du scroll
     const [affix, setAffix] = useState(false)
 
+    const history = useHistory();
+
     // On met à jour affix en fonction du scroll
     const updateAffix = () => {
         const scrollTop = window.scrollY;
@@ -24,6 +26,12 @@ const App = withRouter(({location}) => {
     // Listener lors du scroll
     const handleScroll = (event) => {
         updateAffix()
+    }
+
+    const handleUserSession = (session) => {
+        const {token} = session
+        localStorage.setItem('access_token', token)
+        history.push('/')
     }
 
     // On ajoute le listener lors du scroll sur document
@@ -45,7 +53,9 @@ const App = withRouter(({location}) => {
             {/* Quelque soit la route, on affiche la page */}
             <div className={styles.page}>
                 {/* On appelle les routes*/}
-                <Routes token={token} />
+                <Routes
+                    handleUserSession={handleUserSession}
+                    token={token} />
             </div>
 
             {/* On affiche le footer */}

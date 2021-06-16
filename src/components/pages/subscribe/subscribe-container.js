@@ -3,7 +3,7 @@
 import Plan from './subscribe-plan.js';
 import SubscribeChoice from './subscribe-choice.js';
 import CardDetails from './subscribe-card-details.js';
-import history from '../../history';
+import history from '../../../history';
 import { useEffect } from 'react';
 
 const Subscribe = ({ token }) => {

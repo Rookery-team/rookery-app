@@ -3,7 +3,7 @@
 import View from './password-reset-view.js';
 
 import { useParams } from 'react-router-dom';
-import History from '../../history';
+import History from '../../../history';
 const PasswordReset = props => {
   const [state, setState] = useState({
     password: '',

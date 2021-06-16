@@ -4,6 +4,7 @@ import {Route, Switch, Redirect} from 'react-router-dom';
 import PasswordReset from './password-reset';
 import Register from './register';
 import Login from './login';
+import Home from './home';
 import Privacy from './cgu/privacy';
 import NotFoundPage from './errors/NotFoundPage';
 import CGU from './cgu';
@@ -84,15 +85,14 @@ export default props => (
             props={props}
         />
 
-        {/*TODO : Routes pour les abonnés
-    <SubscribedRoute path="/home" exact component={Home} props={props} />
+        {/*TODO : Routes pour les abonnés*/}
+        <PrivateRoute path="/home" exact component={Home} props={props} />
 
-    <PrivateRoute path="/settings" exact component={Settings} props={props} />
+        {/*<PrivateRoute path="/settings" exact component={Settings} props={props} />*/}
 
-    <SubscribedRoute path="/search" exact component={Search} props={props} />
+        {/*<SubscribedRoute path="/search" exact component={Search} props={props} />*/}
 
-    <PrivateRoute path="/subscribe" exact component={Subscribe} props={props} />
-    */}
+        {/*<PrivateRoute path="/subscribe" exact component={Subscribe} props={props} />*/}
 
         <Route path="/cgu" component={CGU}/>
         <Route path="/privacy" component={Privacy}/>

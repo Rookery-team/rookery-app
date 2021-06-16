@@ -4,14 +4,15 @@ import React from 'react';
 import styles from './index.module.scss';
 import {Link} from "react-router-dom";
 
-const View = ({
-                  email,
-                  password,
-                  handleChange,
-                  handleSubmit,
-                  error,
-                  resetPassword
-              }) => {
+const View = (
+    {
+        email,
+        password,
+        handleChange,
+        handleSubmit,
+        error,
+        resetPassword
+    }) => {
 
     const validateForm = () => {
         return email && email.length > 0 && password && password.length > 0;

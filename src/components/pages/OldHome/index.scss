@@ -1,0 +1,233 @@
+img[alt] {
+  @apply whitespace-nowrap overflow-hidden;
+  text-indent: 100%;
+}
+
+[aria-label="Navigation bar"] {
+  @apply flex;
+  @apply px-24;
+  @apply text-base;
+  @apply select-none;
+  @apply sticky top-0 left-0;
+
+  @apply z-50;
+
+  background: red;
+
+  > [aria-label="Logo"] {
+    @apply pointer-events-none select-none;
+
+    max-height: 64px;
+    min-height: 32px;
+  }
+
+  > [aria-label^="Menu"] {
+    @apply flex flex-1 items-center gap-3;
+
+    > [aria-label="Menu entry"] {
+
+      @apply h-full;
+      @apply cursor-pointer;
+      @apply flex place-items-center place-content-center;
+
+      &.dropdown {
+
+        @apply relative;
+
+        > *:not(ul) {
+          @apply pointer-events-none;
+        }
+
+        > img {
+          @apply rounded;
+          @apply w-8 h-8;
+        }
+
+        > svg {
+          fill: white;
+          @apply w-6 h-6;
+        }
+
+        > .caret {
+          @apply transition;
+          @apply h-0 ml-2 w-0;
+          @apply border-solid;
+          border-width: 5px 5px 0 5px;
+          border-color: #fff transparent transparent transparent;
+
+          &.open {
+            @apply transform rotate-180;
+          }
+        }
+
+        > ul {
+          @apply absolute top-full right-0;
+
+          @apply hidden opacity-0;
+          @apply rounded-lg;
+          @apply transition;
+          @apply text-sm text-white;
+          background-color: #00000055;
+          transition-property: opacity, top;
+
+          @apply py-2;
+
+          &::after {
+            content: '';
+            @apply absolute;
+            top: -7px;
+            right: 15%;
+
+            @apply h-0 ml-2 w-0;
+
+            @apply transform rotate-180;
+
+            @apply border-solid;
+            border-width: 7px 7px 0 7px;
+            border-color: #fff transparent transparent transparent;
+          }
+
+          > li {
+            @apply h-full;
+            @apply py-1 px-3;
+            @apply font-bold;
+
+            &:hover {
+              @apply underline;
+            }
+          }
+        }
+
+        &.active {
+
+          > ul {
+            @apply opacity-100;
+
+            @apply flex flex-col;
+            @apply w-40;
+          }
+
+        }
+
+      }
+
+    }
+
+    &[aria-label="Menu left"] {
+      @apply px-3;
+      background: yellow;
+    }
+
+    &[aria-label="Menu right"] {
+      @apply place-content-end;
+    }
+  }
+}
+
+[aria-label="Main section"] {
+  @apply relative;
+  @apply text-white;
+  @apply py-6;
+  @apply flex flex-col place-content-center;
+
+  @apply z-10;
+
+  background: #000000cc;
+
+  padding-left: 100px;
+  padding-right: 100px;
+  height: 64vh;
+
+  &:before {
+    content: '';
+    background: #000000cc;
+    @apply block;
+    @apply absolute;
+    @apply inset-0;
+    @apply w-full h-full;
+    @apply z-10;
+  }
+
+  > [aria-label="Main section's background"] {
+    @apply absolute inset-0 w-full h-full;
+    background: gainsboro;
+    @apply z-0;
+  }
+
+  > [role="contentinfo"] {
+    width: 64%;
+    @apply z-10;
+
+    > [aria-label="Documentary's title"] {
+      @apply text-6xl;
+      @apply mb-2;
+    }
+
+    > [aria-label="Documentary's author"] {
+      @apply text-2xl;
+      @apply mb-2;
+    }
+
+    > [aria-label="Documentary's description"] {
+      @apply text-2xl;
+      @apply mb-6;
+    }
+
+    > [aria-label="Actions"] {
+      @apply flex gap-3;
+
+      > li {
+        @apply text-2xl;
+        @apply bg-red-400;
+        @apply py-2 px-6;
+      }
+    }
+  }
+}
+
+[aria-label="Categories list"] {
+
+  @apply grid grid-cols-1 gap-8;
+  @apply py-6 pr-0 pl-0;
+  @apply overflow-hidden;
+
+  > section {
+
+    @apply grid grid-flow-row gap-3;
+
+    > [aria-label="Title of category"] {
+      @apply text-3xl;
+      @apply cursor-pointer;
+
+      margin-left: 100px;
+    }
+
+    > [aria-label="Entries of category"][role="grid"] {
+      @apply relative;
+      @apply overflow-y-visible;
+      @apply h-full w-full;
+      @apply grid grid-rows-1 grid-flow-col-dense gap-1 items-center;
+
+      > li[role="gridcell"] {
+        @apply relative;
+        // @apply aspect-ratio-21/9;
+        @apply bg-gray-500;
+        @apply cursor-pointer;
+        @apply transition;
+
+        @apply hover:scale-125;
+
+        width: calc(calc(calc(100vw - 4rem) * (1 / 6)) - calc(164px * (1 / 6)));
+        left: 100px;
+        z-index: 1;
+
+        &:hover {
+          z-index: 2;
+          transform: scale(var(--tw-scale-x));
+        }
+      }
+    }
+
+  }
+
+}
