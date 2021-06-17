@@ -5,7 +5,9 @@
   @apply bg-gray-400;
   @apply bg-center bg-cover bg-no-repeat;
 
-  background-image: url(http://picsum.photos/1024/576);
+  background-image:
+          linear-gradient(to right, #000A 0%, #000A 35%, transparent 100%),
+          url(http://picsum.photos/1024/576);
   color: white;
 
   @apply flex place-items-center;
@@ -133,6 +135,10 @@
   }
 }
 
+.feature {
+  @apply text-white;
+}
+
 .featureAlternative {
   background-image: url(https://picsum.photos/1280/800);
   @apply text-white;
@@ -156,7 +162,7 @@
 }
 
 .featureEven {
-  @apply bg-gray-400;
+  @apply bg-gray-400 text-black;
 
   &_container {
     @apply flex-row-reverse;

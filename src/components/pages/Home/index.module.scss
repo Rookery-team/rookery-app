@@ -1,37 +1,103 @@
 .documentaires_featured {
   @apply h-full;
   @apply py-40 lg:py-32 md:py-24;
-  @apply px-8;
+  padding-left: 5vw;
+  padding-right: 5vw;
   @apply flex flex-col place-content-center place-items-start;
-  @apply bg-gray-400;
+  background-color: #0F0F0F;
   @apply text-base;
+  @apply relative;
+  @apply text-white;
+
+  &::before {
+    @apply z-10;
+    @apply h-full w-full;
+    @apply absolute inset-0;
+  }
 
   [aria-label="Informations sur le documentaire"] {
     @apply text-base;
+
+    > [aria-label="Titre"] {
+      @apply text-4xl;
+      @apply mb-1;
+    }
+
+    > [aria-label="Auteur"] {
+      @apply text-lg;
+      @apply mb-2;
+
+      > span {
+        @apply font-bold;
+      }
+    }
+
+    > [aria-label="Description"] {
+      @apply text-base;
+      width: 65ch;
+      @apply mb-16;
+    }
+
+    > div:last-child {
+      @apply flex gap-4;
+      > button {
+        @apply flex gap-2 items-center justify-center;
+        @apply appearance-none rounded cursor-pointer;
+        @apply items-center flex justify-center;
+        @apply opacity-100 relative select-none whitespace-nowrap;
+        padding: 0.8rem 2.4rem 0.8rem 2rem;
+        border: 0;
+        will-change: background-color, color;
+        word-break: break-word;
+        @apply font-bold;
+
+        &:nth-child(1) {
+          background-color: rgba(255, 255, 255, 0.75);
+          @apply text-black;
+        }
+
+        &:nth-child(2) {
+          @apply text-white;
+          background-color: rgba(109,109,110,0.7);
+        }
+      }
+    }
   }
 }
 
 .categories {
 
+  @apply text-white;
+
   > section {
     @apply h-full;
     @apply px-0 py-7;
     @apply relative;
+    z-index: 1;
+
+    > p {
+      margin-left: 4vw;
+      @apply text-2xl leading-normal;
+      @apply mb-3;
+      @apply z-10;
+    }
 
     [aria-label="Liste de documentaires"] {
       @apply flex;
       @apply w-full h-auto;
-      transform: translateX(4vw);
+      // In theory should work :
+      // transform: translateX(calc(4vw - calc(100vw * attr(data-page number, 0))));
+      @apply transition;
       gap: .25vw;
     }
 
     [aria-label="Liste de documentaires"] > [role="listitem"] {
       @apply flex flex-col justify-end;
-      @apply bg-red-100;
+      background-color: #333;
       @apply rounded-lg;
-      @apply p-3;
       @apply transition transform;
       pointer-events: all;
+      @apply relative;
 
       // @apply aspect-h-9 aspect-w-16;
       width: 28.5vw;
@@ -41,9 +107,52 @@
       min-height: 53.5111111111vw;
       max-height: 53.5111111111vw;
 
-      [aria-label="Informations sur le documentaire selectionné"] {
+      [role="contentinfo"] {
+        @apply w-full h-3/5;
+        @apply absolute -bottom-0;
+        @apply transform translate-y-3/4;
+        @apply text-gray-300;
+        background-color: #222;
+        @apply py-2 px-2;
+        @apply flex flex-col justify-start;
+        @apply transition delay-300;
+        @apply rounded-b-xl;
+        @apply text-xs;
+        @apply z-20;
+
+        &[aria-hidden="true"] {
+          @apply hidden;
+        }
+
+        > [aria-label="Auteur"] {
+
+          > span {
+            @apply ml-1;
+            @apply font-bold;
+          }
+
+        }
+
+        > [aria-label="Synopsis"] {
+          font-size: 85%;
+          @apply leading-tight;
+          @apply mt-1;
+        }
+      }
+
+      > [role="presentation"] {
+        @apply h-full w-full;
+        @apply place-content-center;
+        @apply pointer-events-none;
         @apply hidden;
-        @apply h-0;
+        @apply cursor-pointer pointer-events-auto;
+        @apply absolute bottom-0;
+        @apply z-30;
+
+        svg {
+          width: 3rem;
+          height: 3rem;
+        }
       }
 
       &[aria-current="true"] {
@@ -51,17 +160,19 @@
         @apply z-40;
         @apply shadow-lg;
 
+        --tw-translate-y: -35%;
+
+
         &[data-leftest="true"] {
-          @apply scale-125 translate-x-11;
+          --tw-translate-x: 2.25vw;
         }
 
         &[data-rightest="true"] {
-          @apply scale-125 -translate-x-11;
+          --tw-translate-x: -2.25vw;
         }
 
-        [aria-label="Informations sur le documentaire selectionné"] {
-          @apply transition delay-300;
-          @apply h-full;
+        > [role="presentation"] {
+          @apply grid;
         }
       }
 
@@ -132,6 +243,7 @@
       width: 3.75vw;
       @apply grid place-content-center;
       @apply absolute;
+      @apply cursor-pointer;
 
       &:first-child {
         left: 0;
@@ -139,6 +251,10 @@
 
       &:last-child {
         left: 95.35vw;
+      }
+
+      &[aria-disabled="true"] {
+        @apply hidden;
       }
 
       // @apply aspect-h-9 aspect-w-16;

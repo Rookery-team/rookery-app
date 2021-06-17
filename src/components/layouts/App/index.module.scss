@@ -1,9 +1,7 @@
-
-.App {}
-
 .page {
   @apply transform -translate-y-16;
   @apply min-h-screen relative inset-0;
+  @apply bg-transparent;
 }
 
 :global {

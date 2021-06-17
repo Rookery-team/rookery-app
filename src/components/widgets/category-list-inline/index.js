@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
-import styles from './index.module.scss';
+import React, {useState, useEffect} from 'react';
+// import styles from './index.module.scss';
 import {Link} from "react-router-dom";
+import CategoryListInlineItem from "./list-item";
 
 /**
  * source: https://www.javascripttutorial.net/dom/css/check-if-an-element-is-visible-in-the-viewport/
@@ -17,31 +18,6 @@ function isInViewport(element) {
     );
 }
 
-/**
- * Checks if element is at the left-end of the screen
- * @param element
- * @returns {boolean}
- */
-function isLeftest(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.width > rect.left
-    );
-}
-
-/**
- * Checks if element is at the right-end of the screen
- * @param element
- * @returns {boolean}
- */
-function isRightest(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.width > (document.documentElement.clientWidth - rect.right)
-    );
-}
-
-
 export const CategoryListInline = (
     {
         id = 0,
@@ -49,80 +25,85 @@ export const CategoryListInline = (
         entries = []
     }) => {
 
-    const [selectedTimeout, setSelectedTimeout] = useState()
+    const numberVisibleMax = window.innerWidth >= 992 ? 5 : 3;
 
-    const handleMouseEnter = (event) => {
+    let [state, setState] = useState({
+        page: 0,
+        transform: `translateX(4vw)`,
+        list: null,
+        showLeftControl: false,
+        showRightControl: numberVisibleMax < entries.length
+    })
+
+    const handleLeftControlClick = (event) => {
         const {target} = event
-        const infos = target.querySelector('[aria-label="Informations sur le documentaire selectionné"]')
+        const listControls = target.closest('[role="list"]')
+        const listDocumentaires = listControls.previousElementSibling
 
-        if (!isInViewport(target)) return
-
-        setSelectedTimeout(setTimeout(function () {
-            target.setAttribute('aria-current', 'true')
-            infos.setAttribute('aria-hidden', 'false')
-
-            if (isLeftest(target)) {
-                target.setAttribute('data-leftest', 'true')
-                return
-            }
-
-            if (isRightest(target)) {
-                target.setAttribute('data-rightest', 'true')
-            }
-        }, 575))
+        setState(previousState => ({
+            ...previousState,
+            page: previousState.page - 1,
+            transform: `translateX(${((previousState.page - 1) * 83) + 4}vw)`,
+            showLeftControl: previousState.page - 1 > 1,
+            showRightControl: isInViewport(listDocumentaires.querySelector('[role="listitem"]:last-of-type'))
+        }))
     }
 
-    const handleMouseLeave = (event) => {
+    const handleRightControlClick = (event) => {
         const {target} = event
-        if (selectedTimeout) clearTimeout(selectedTimeout)
-        target.setAttribute('aria-current', 'false');
+        const listControls = target.closest('[role="list"]')
+        const listDocumentaires = listControls.previousElementSibling
+
+        setState(previousState => {
+            const {page} = previousState
+            return ({
+                ...previousState,
+                page: page + 1,
+                transform: `translateX(-${((page + 1) * 83) + 4}vw)`,
+                showLeftControl: true,
+                showRightControl: isInViewport(listDocumentaires.querySelector('[role="listitem"]:last-of-type'))
+            });
+        })
     }
+
+    let {list, page, transform, showLeftControl, showRightControl} = state
 
     return (
         <section
+            data-element-name="category-list-inline"
             aria-labelledby={"category-" + id}
             role="presentation">
             <p id={"category-" + id}>{name}</p>
 
             <div role="contentinfo">
 
-                <div
+                {<div
                     role="list"
+                    data-page={page}
+                    style={{transform}}
                     aria-label="Liste de documentaires">
 
-                    {entries.map(({name,author}) => {
+                    {entries.map(({id, name, author, description}) => {
                         return (
-                            <article
-                                role="listitem"
-                                aria-current="false"
-                                onMouseEnter={handleMouseEnter}
-                                onMouseLeave={handleMouseLeave}>
-
-                                <div
-                                    aria-label={name}
-                                    role="contentinfo">
-
-                                    <p aria-label="Titre">{name}</p>
-                                </div>
-
-                                <div
-                                    aria-hidden="true"
-                                    aria-label="Informations sur le documentaire selectionné">
-
-                                    <p>Coucou ceci est un texte</p>
-
-                                </div>
-
-                            </article>
+                            <CategoryListInlineItem
+                                key={Math.floor(Math.random() * Date.now() + 666)}
+                                name={name}
+                                author={author}
+                                description={description}
+                            />
                         )
                     })}
-                </div>
+                </div>}
 
                 <div
                     role="list"
                     aria-label="Contrôles de la liste">
 
-                    <article role="listitem">
+                    <article
+                        aria-label="Aller à gauche"
+                        aria-disabled={!showLeftControl}
+                        onClick={handleLeftControlClick}
+                        role="listitem">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-6 w-6"
@@ -132,7 +113,11 @@ export const CategoryListInline = (
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                     </article>
-                    <article role="listitem">
+                    <article
+                        aria-label="Aller à droite"
+                        aria-disabled={!showRightControl}
+                        onClick={handleRightControlClick}
+                        role="listitem">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-6 w-6"

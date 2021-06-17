@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes loading-video {
+  from {
+    background: #11111115;
+  }
+
+  to {
+    background: red;
+    //background: #04040475;
+  }
+}
+
 :root {
   --dark: #0B0C10;
   --secondary-dark: #1F2833;
@@ -14,6 +25,8 @@
 html, body {
   @apply m-0 h-full max-h-screen;
   overflow: hidden auto;
+  background-color: #141414;
+  @apply text-white;
 }
 
 body {
@@ -31,8 +44,25 @@ code {
 
 #root {
   @apply h-full;
+  @apply transition;
+  transition-duration: 2s;
+
+  &[data-zoom="true"] {
+    @apply transform scale-125;
+  }
 }
 
 #root > div {
   @apply relative;
+}
+
+.loading-backdrop {
+  @apply absolute inset-0;
+  @apply h-full w-full;
+  @apply block;
+  background: transparent;
+  transition-duration: 2s;
+  transition-property: background-color, opacity;
+
+  content: '';
 }

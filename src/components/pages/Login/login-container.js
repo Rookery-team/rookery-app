@@ -68,8 +68,6 @@ const Login = ({handleUserSession}) => {
             .then(response => response.json())
             .then(session => {
 
-                console.log({session})
-
                 if (!session.error) {
                     handleUserSession(session); // Will redirect
                     return;

@@ -9,6 +9,7 @@ import Privacy from './cgu/privacy';
 import NotFoundPage from './errors/NotFoundPage';
 import CGU from './cgu';
 import Welcome from './welcome';
+import Watch from "../components/pages/watch";
 
 const PrivateRoute = ({component: Component, props, ...rest}) => (
     <Route
@@ -87,6 +88,8 @@ export default props => (
 
         {/*TODO : Routes pour les abonnés*/}
         <PrivateRoute path="/home" exact component={Home} props={props} />
+
+        <PrivateRoute path="/watch/:id" component={Watch} props={props} />
 
         {/*<PrivateRoute path="/settings" exact component={Settings} props={props} />*/}
 

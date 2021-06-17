@@ -13,14 +13,15 @@ const App = withRouter(({location}) => {
     const [token, setToken] = useState(localStorage.getItem('access_token'));
 
     // Strate Affix: Navbar affix ou non lors du scroll
-    const [affix, setAffix] = useState(false)
+    const scrollTop = window.scrollY;
+    const [affix, setAffix] = useState(1 < scrollTop)
 
     const history = useHistory();
 
     // On met à jour affix en fonction du scroll
     const updateAffix = () => {
         const scrollTop = window.scrollY;
-        setAffix(128 < scrollTop)
+        setAffix(1 < scrollTop)
     }
 
     // Listener lors du scroll
@@ -30,6 +31,7 @@ const App = withRouter(({location}) => {
 
     const handleUserSession = (session) => {
         const {token} = session
+        if (!token) return
         localStorage.setItem('access_token', token)
         history.push('/')
     }

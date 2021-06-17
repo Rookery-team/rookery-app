@@ -6,7 +6,7 @@ import {CookiesProvider} from 'react-cookie';
 import ScrollMemory from 'react-router-scroll-memory';
 
 
-import './index.css';
+import './index.scss';
 
 import App from './components/layouts/App';
 
