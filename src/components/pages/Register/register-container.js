@@ -28,7 +28,7 @@ const Register = ({handleUserSession}) => {
         event.preventDefault();
         setWorking(true);
 
-        fetch(process.env.REACT_APP_BACK_URL + 'app/user/new/', {
+        fetch(process.env.REACT_APP_BACK_URL + 'app/user/new', {
             headers: {
                 Accept: 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
