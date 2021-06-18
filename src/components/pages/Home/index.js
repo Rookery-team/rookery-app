@@ -5,54 +5,56 @@ import {CategoryListInline} from '../../widgets/category-list-inline'
 import {NavbarDropdown} from "../../widgets/navbar-dropdown";
 import SectionFeatured from "../../widgets/section-featured";
 
-const Home = async () => {
+const Home =  () => {
 
-    const [state, setState] = useState({
+    /*const [state, setState] = useState({
         sectionFeatured: null,
         categories: []
-    })
+    })*/
 
-     fetch(process.env.REACT_APP_BACK_URL + 'api/v0/video/feature', {
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
-            Accept: 'application/json, text/plain, */*',
-            'Content-Type': 'application/json'
-        }
-    })
-        .then(res => res.json())
-        .then(res => {
-            if (!res.ok) {
-                return;
+    const [sectionFeatured, setSectionFeatured] = useState(null)
+    const [categories, setCategories] = useState([])
+
+    useEffect(()=> {
+        fetch(process.env.REACT_APP_BACK_URL + 'api/v0/video/feature', {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
+                Accept: 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
             }
+        })
+            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    return;
+                }
 
-            let {data} = res;
+                let {data} = res;
 
-            data = JSON.parse(data)
+                data = JSON.parse(data)
 
-            const {id, name, thumbnail, author, description, uri} = data
+                const {id, name, thumbnail, author, description, uri} = data
 
-            const documentaireFeatured = {id, name, thumbnail, author, description, uri}
+                const documentaireFeatured = {id, name, thumbnail, author, description, uri}
 
-            setState(currentState => ({
-                ...currentState,
-                sectionFeatured: <SectionFeatured {...documentaireFeatured} />
-            }))
+                setSectionFeatured(<SectionFeatured {...documentaireFeatured} />)
+            });
+
+        fetch(process.env.REACT_APP_BACK_URL + 'api/v0/category/list', {
+            headers: {
+                'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
+                Accept: 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        }).then(res => res.json()
+        ).then(response => {
+            const {ok} = response
+
+            if (!ok) {
+                return
+            }
         });
-
-    fetch(process.env.REACT_APP_BACK_URL + 'api/v0/category/list', {
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
-            Accept: 'application/json, text/plain, */*',
-            'Content-Type': 'application/json'
-        }
-    }).then(res => res.json()
-    ).then(response => {
-        const {ok} = response
-
-        if (!ok) {
-            return
-        }
-    });
+    })
 
     return (
         <>
@@ -104,6 +106,8 @@ const Home = async () => {
                 </div>
 
             </section> */}
+
+            {sectionFeatured}
 
             <section
                 aria-label="Catégories mises en avant"
