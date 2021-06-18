@@ -132,7 +132,9 @@
 }
 
 .featureAlternative {
-  background-image: url(https://picsum.photos/1280/800);
+  background-image:
+          linear-gradient(to right, #000C 0%, #000C 15%, transparent 100%),
+          url(https://picsum.photos/1280/800);
   @apply text-white;
   @apply bg-gray-600 bg-cover bg-center;
 
