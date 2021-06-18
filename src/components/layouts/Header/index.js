@@ -1,11 +1,19 @@
 import styles from './index.module.scss'
 
 import logo from 'assets/images/logo.png';
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {NavbarDropdown} from "../../widgets/navbar-dropdown";
 import React from "react";
 
 const Header = ({token, affix}) => {
+
+    const history = useHistory()
+
+    const handleClickLogout = event => {
+        localStorage.removeItem('access_token')
+        history.push('/')
+        history.go(0)
+    }
 
     return (
         <nav className={styles.navigation} data-affix={affix}>
@@ -51,7 +59,7 @@ const Header = ({token, affix}) => {
                                 entries={[
                                     <Link to="/mon-compte">Compte</Link>,
                                     <Link to="/centre-aide">Centre d'aide</Link>,
-                                    <Link to="/logout">Se deconnecter</Link>,
+                                    <Link onClick={handleClickLogout}>Se deconnecter</Link>,
                                 ]}
                             />
                             {/*<NavbarDropdown

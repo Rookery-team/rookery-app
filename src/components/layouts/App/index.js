@@ -33,7 +33,7 @@ const App = withRouter(({location}) => {
         const {token} = session
         if (!token) return
         localStorage.setItem('access_token', token)
-        history.push('/')
+        history.go(0)
     }
 
     // On ajoute le listener lors du scroll sur document
