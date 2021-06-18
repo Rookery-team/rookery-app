@@ -3,27 +3,17 @@ import styles from './index.module.scss';
 import {Link, useHistory} from "react-router-dom";
 
 
-export const SectionFeatured = () => {
-
-    let [state, setState] = useState({
-        id: 0,
-        name: '',
-        thumbnail: '',
-        author: '',
-        description: '',
-        uri: ''
-    })
+export const SectionFeatured = ({
+                                    id,
+                                    name,
+                                    thumbnail,
+                                    author,
+                                    description,
+                                    uri,
+                                }
+) => {
 
     const history = useHistory()
-
-    const {
-        id,
-        name,
-        thumbnail,
-        author,
-        description,
-        uri,
-    } = state
 
     const thumbnailStyle = {
         backgroundImage: `linear-gradient(to right, #000C 0%, #000C 35%, transparent 100%), url(${thumbnail})`

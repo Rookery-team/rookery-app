@@ -15,11 +15,11 @@ const Home =  () => {
     const [sectionFeatured, setSectionFeatured] = useState(null)
     const [categories, setCategories] = useState([])
 
-    useEffect(()=> {
+    /*useEffect(()=> {
         fetch(process.env.REACT_APP_BACK_URL + 'api/v0/video/feature', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
-                Accept: 'application/json, text/plain, */*',
+                Accept: 'application/json, text/plain, *\/*',
                 'Content-Type': 'application/json'
             }
         })
@@ -43,7 +43,7 @@ const Home =  () => {
         fetch(process.env.REACT_APP_BACK_URL + 'api/v0/category/list', {
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
-                Accept: 'application/json, text/plain, */*',
+                Accept: 'application/json, text/plain, *\/*',
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json()
@@ -54,12 +54,20 @@ const Home =  () => {
                 return
             }
         });
-    })
+    })*/
 
     return (
         <>
             {/* Section d'entête */}
-            {/* <section
+            <SectionFeatured
+                id={0}
+                name={"Ceci est un nom"}
+                thumbnail={"https://picsum.photos/1024/576"}
+                author={"Ulysse ARNAUD"}
+                description={"Ceci est une description"}
+                uri={"https://www.youtube.com/embed/wP33P6AgSUo"}
+            />
+            {/*<section
                 className={styles.documentaires_featured}
                 aria-label="Documentaire mis en avant"
                 role="presentation">
@@ -87,7 +95,10 @@ const Home =  () => {
                             </svg>
                             Voir
                         </button>
-                        <button>
+                        <button onclick={(event) => {
+                            event.preventDefault()
+                            alert('Fonctionnalité en cours d\'implémentation')
+                        }}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-6 w-6"
@@ -105,9 +116,9 @@ const Home =  () => {
                     </div>
                 </div>
 
-            </section> */}
+            </section>*/}
 
-            {sectionFeatured}
+            {/*sectionFeatured*/}
 
             <section
                 aria-label="Catégories mises en avant"
