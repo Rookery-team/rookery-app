@@ -127,7 +127,7 @@ const Home =  () => {
                 <CategoryListInline
                     category={{
                         id: 1,
-                        name: 'Oiseaux d\'Europe'
+                        name: 'Nouveautés les plus coonsultées'
                     }}
                     entries={[
                         {
@@ -163,7 +163,19 @@ const Home =  () => {
                 <CategoryListInline
                     category={{
                         id: 1,
-                        name: 'Oiseaux d\'Europe'
+                        name: 'Oiseau d\'Europe'
+                    }}
+                    entries={[
+                        {
+                            name: 'Documentaire 3',
+                            author: 'Ulysse ARNAUD'
+                        },
+                    ]} />
+
+                <CategoryListInline
+                    category={{
+                        id: 1,
+                        name: 'Rookeries'
                     }}
                     entries={[
                         {
@@ -178,22 +190,6 @@ const Home =  () => {
                             name: 'Documentaire 3',
                             author: 'Ulysse ARNAUD'
                         },
-                        {
-                            name: 'Documentaire 4',
-                            author: 'Ulysse ARNAUD'
-                        },
-                        {
-                            name: 'Documentaire 5',
-                            author: 'Ulysse ARNAUD'
-                        },
-                        {
-                            name: 'Documentaire 6',
-                            author: 'Ulysse ARNAUD'
-                        },
-                        {
-                            name: 'Documentaire 7',
-                            author: 'Ulysse ARNAUD'
-                        }
                     ]} />
 
             </section>
