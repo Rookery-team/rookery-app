@@ -64,13 +64,19 @@ export default props => (
             component={Login}
             props={props}
         />
-
         <RedirectIfAuthentificatedRoute
-            path="/register/:invitation"
+            path="/register"
             exact
             component={Register}
             props={props}
         />
+
+        {/*<RedirectIfAuthentificatedRoute
+            path="/register/:invitation"
+            exact
+            component={Register}
+            props={props}
+        />*/}
 
         <RedirectIfAuthentificatedRoute
             path="/password-reset/:token"

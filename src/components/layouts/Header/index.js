@@ -24,6 +24,7 @@ const Header = ({token, affix}) => {
                         </div>
                         {/* Menu Right */}
                         <div className={styles.menus}>
+                            <Link to="/register">S'inscrire</Link>
                             <Link to="/login">Se connecter</Link>
                         </div>
                     </>

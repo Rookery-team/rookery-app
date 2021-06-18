@@ -23,6 +23,8 @@ const validateForm = (inputs, fields) => {
 const View = ({ inputs, handleChange, handleSubmit, working, error }) => {
   const formValid = validateForm(inputs, [
     'email',
+    'pseudo',
+    // 'birthday',
     'first_name',
     'last_name',
     'password'
@@ -34,7 +36,7 @@ const View = ({ inputs, handleChange, handleSubmit, working, error }) => {
       <form onSubmit={handleSubmit}>
         <h1>Inscription</h1>
 
-        {error ? <p>{error}</p> : <></>}
+        {error && <p>{error}</p>}
 
         <div className={styles.groups}>
 
@@ -60,6 +62,19 @@ const View = ({ inputs, handleChange, handleSubmit, working, error }) => {
               type="text"
               id="last_name"
               name="last_name"
+              onChange={handleChange}
+            />
+          </div>
+
+          <div className={styles.group}>
+            <label htmlFor="pseudo">Pseudo</label>
+
+            <input
+              autoFocus
+              className={styles.control}
+              type="text"
+              id="pseudo"
+              name="pseudo"
               onChange={handleChange}
             />
           </div>

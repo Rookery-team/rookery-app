@@ -39,11 +39,12 @@ $background: white;
 
 .menus {
     @apply w-full h-full;
-    @apply grid;
-    place-items: center flex-start;
+    @apply flex gap-6;
+    place-items: center;
+    place-content: flex-start;
     @apply px-5;
 
     & + & {
-        place-items: center flex-end;
+        place-content: flex-end;
     }
 }
