@@ -2,7 +2,9 @@
   @apply flex flex-row-reverse place-items-center place-content-end;
   @apply min-h-screen;
   @apply bg-gray-600 bg-no-repeat bg-cover bg-center;
-  background-image: url(https://picsum.photos/1280/800);
+  background-image:
+          linear-gradient(to right, #000C 0%, #000C 35%, transparent 100%),
+          url(https://picsum.photos/1280/800);
 
   label {
     @apply inline-block;

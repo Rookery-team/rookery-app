@@ -8,23 +8,21 @@ const Welcome = () => {
             {/* Section entête */}
             <header className={styles.header}>
                 {/* Container */}
-                <div className={styles.header_container}>
+                <div>
 
-                    {/* Main message */}
-                    <p className={styles.header_mainMessage}>
+                    {/* Slogan */}
+                    <p aria-label="Slogan">
                         Retrouver nos&nbsp;incroyables documentaires
                     </p>
-
-                    {/* Sub main message */}
-                    <p className={styles.header_subMainMessage}>
+                    <p>
                         A&nbsp;tout&nbsp;moment, où&nbsp;que vous&nbsp;soyez
                     </p>
 
                     {/* Input group */}
-                    <div className={styles.header_headerInputGroup}>
+                    <form name="get-started">
                         <input type="email" />
                         <button>Commencer</button>
-                    </div>
+                    </form>
 
                 </div>
             </header>

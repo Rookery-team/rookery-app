@@ -1,6 +1,6 @@
 {
   "name": "rookery-app",
-  "homepage": "https://rookery-app.bellidev.com",
+  "homepage": "https://rookery-app.bellidev.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

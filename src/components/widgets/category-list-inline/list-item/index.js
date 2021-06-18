@@ -101,6 +101,7 @@ export const CategoryListInlineItem = (
         const rootElement = document.getElementById('root')
         rootElement.setAttribute('data-zoom', 'true')
         setTimeout(() => {
+            rootElement.setAttribute('data-zoom', 'false')
             history.push('/watch/' + id)
         }, 2000)
     }

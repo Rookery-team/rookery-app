@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import styles from './index.module.scss'
 import {Link} from "react-router-dom"
 import {CategoryListInline} from '../../widgets/category-list-inline'
+import {NavbarDropdown} from "../../widgets/navbar-dropdown";
 
 const Home = () => {
     return (

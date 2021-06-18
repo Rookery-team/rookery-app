@@ -1,58 +1,48 @@
 .header {
   @apply h-full;
   min-height: 60vh;
-
   @apply bg-gray-400;
   @apply bg-center bg-cover bg-no-repeat;
-
   background-image:
-          linear-gradient(to right, #000A 0%, #000A 35%, transparent 100%),
+          linear-gradient(to right, #000C 0%, #000C 35%, transparent 100%),
           url(http://picsum.photos/1024/576);
-  color: white;
-
+  @apply text-white;
   @apply flex place-items-center;
   @apply relative;
 
-  &:before {
+  &::before {
     @apply h-full w-full;
     @apply block;
     @apply absolute inset-0;
-
     background: #00000070;
-
     z-index: 1;
-
     content: '';
   }
 
-  &_container {
+  > div {
     @apply flex flex-col;
     place-items: start center;
-
     @apply h-full;
     width: 94%;
-
     @apply m-auto;
-
     z-index: 2;
   }
 
-  &_mainMessage {
+  [aria-label="Slogan"] {
     @apply text-4xl;
     @apply m-0 mb-5;
     width: 25ch;
+
+    + p {
+      @apply text-xl;
+      @apply m-0 mb-5;
+    }
   }
 
-  &_subMainMessage {
-    @apply text-xl;
-    @apply m-0 mb-5;
-  }
-
-  &_headerInputGroup {
-
+  form {
     @apply flex;
 
-    & > input {
+    > input {
       @apply appearance-none block;
       @apply w-full h-auto;
       @apply bg-gray-200 text-gray-800;
@@ -103,7 +93,8 @@
     @apply flex place-items-center;
     @apply m-auto;
     @apply h-full;
-    width: 94%;
+    padding-left: 5vw;
+    padding-right: 5vw;
     z-index: 2;
   }
 
@@ -128,6 +119,7 @@
 
   &_title {
     @apply text-4xl font-bold;
+    max-width: 20ch;
   }
 
   &_subtitle {
@@ -162,13 +154,15 @@
 }
 
 .featureEven {
-  @apply bg-gray-400 text-black;
+  @apply text-white;
+  background: #040404;
 
   &_container {
     @apply flex-row-reverse;
   }
 
   &_content {
+    @apply grid;
     @apply place-items-end;
     @apply text-right;
   }

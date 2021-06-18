@@ -40,5 +40,10 @@ $background: white;
 .menus {
     @apply w-full h-full;
     @apply grid;
-    place-items: center flex-end;
+    place-items: center flex-start;
+    @apply px-5;
+
+    & + & {
+        place-items: center flex-end;
+    }
 }
