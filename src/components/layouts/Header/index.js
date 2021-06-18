@@ -10,6 +10,7 @@ const Header = ({token, affix}) => {
     const history = useHistory()
 
     const handleClickLogout = event => {
+        event.preventDefault()
         localStorage.removeItem('access_token')
         history.push('/')
         history.go(0)

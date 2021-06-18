@@ -1,14 +1,63 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import styles from './index.module.scss'
 import {Link} from "react-router-dom"
 import {CategoryListInline} from '../../widgets/category-list-inline'
 import {NavbarDropdown} from "../../widgets/navbar-dropdown";
+import SectionFeatured from "../../widgets/section-featured";
 
-const Home = () => {
+const Home = async () => {
+
+    const [state, setState] = useState({
+        sectionFeatured: null,
+        categories: []
+    })
+
+     fetch(process.env.REACT_APP_BACK_URL + 'api/v0/video/feature', {
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) {
+                return;
+            }
+
+            let {data} = res;
+
+            data = JSON.parse(data)
+
+            const {id, name, thumbnail, author, description, uri} = data
+
+            const documentaireFeatured = {id, name, thumbnail, author, description, uri}
+
+            setState(currentState => ({
+                ...currentState,
+                sectionFeatured: <SectionFeatured {...documentaireFeatured} />
+            }))
+        });
+
+    fetch(process.env.REACT_APP_BACK_URL + 'api/v0/category/list', {
+        headers: {
+            'Authorization': 'Bearer ' + localStorage.getItem('access_token'),
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        }
+    }).then(res => res.json()
+    ).then(response => {
+        const {ok} = response
+
+        if (!ok) {
+            return
+        }
+    });
+
     return (
         <>
             {/* Section d'entête */}
-            <section
+            {/* <section
                 className={styles.documentaires_featured}
                 aria-label="Documentaire mis en avant"
                 role="presentation">
@@ -54,7 +103,7 @@ const Home = () => {
                     </div>
                 </div>
 
-            </section>
+            </section> */}
 
             <section
                 aria-label="Catégories mises en avant"

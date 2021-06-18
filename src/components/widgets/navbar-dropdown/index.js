@@ -118,7 +118,7 @@ export const NavbarDropdown = (
                 ></span>
             </p>
             <ul>
-                {entries.map(entry => (<li>
+                {entries.map(entry => (<li key={Math.floor(Math.random() * Date.now() + 666)}>
                     {entry}
                 </li>))}
             </ul>
