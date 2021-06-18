@@ -37,6 +37,13 @@ const Login = ({handleUserSession}) => {
                     'avec des indications ' +
                     'pour récupérer votre mot de passe'
             }));
+        }).catch(() => {
+            setState(current => ({
+                ...current,
+                error:
+                    'Une erreur est survenue lors de la requête. ' +
+                    'Veuillez ressayer plus tard.'
+            }));
         });
     };
 
@@ -81,7 +88,14 @@ const Login = ({handleUserSession}) => {
                     error: 'Identifiants erronés'
                 }));
 
-            })
+            }).catch(() => {
+            setState(current => ({
+                ...current,
+                error:
+                    'Une erreur est survenue lors de la requête. ' +
+                    'Veuillez ressayer plus tard.'
+            }));
+        })
             .finally(() => {
                 loadingScreen.classList.add('hidden')
             });
