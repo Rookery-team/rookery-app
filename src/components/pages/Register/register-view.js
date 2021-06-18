@@ -113,9 +113,9 @@ const View = ({ inputs, handleChange, handleSubmit, working, error }) => {
           disabled={!formValid || working}
         />
 
-        <p>
-          Vous avez déjà un compte ? <Link to="/login">Connectez-vous ici</Link>
-        </p>
+        <Link to="/login">
+          Vous avez déjà un compte ? Connectez-vous
+        </Link>
 
       </form>
 

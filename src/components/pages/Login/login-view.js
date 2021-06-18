@@ -24,7 +24,7 @@ const View = (
             <form onSubmit={handleSubmit} name="form-login">
                 <h1>Connexion</h1>
 
-                {error && <p>{error}</p>}
+                {error && <p className={styles.error}>{error}</p>}
 
                 <div className={styles.groups}>
 

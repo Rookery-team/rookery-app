@@ -21,6 +21,10 @@
     @apply text-gray-800 font-normal text-base leading-normal text-center;
     font-family: "Poppins", sans-serif;
     font-style: normal;
+
+    &.error {
+      @apply text-red-500;
+    }
   }
 
   a {

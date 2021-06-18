@@ -19,7 +19,7 @@ const Login = ({handleUserSession}) => {
     };
 
     const resetPassword = () => {
-        fetch(process.env.REACT_APP_BACK_URL + 'api/password/request', {
+        fetch(process.env.REACT_APP_BACK_URL + 'app/reset/password', {
             headers: {
                 Accept: 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
@@ -68,7 +68,9 @@ const Login = ({handleUserSession}) => {
             .then(response => response.json())
             .then(session => {
 
-                if (!session.error) {
+                const {ok} = session
+
+                if (ok) {
                     handleUserSession(session); // Will redirect
                     return;
                 }
