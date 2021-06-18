@@ -75,10 +75,10 @@ const Login = ({handleUserSession}) => {
             .then(response => response.json())
             .then(session => {
 
-                const {ok} = session
+                const {token} = session
 
-                if (ok) {
-                    handleUserSession(session); // Will redirect
+                if (token) {
+                    handleUserSession(({token})); // Will redirect
                     return;
                 }
 
