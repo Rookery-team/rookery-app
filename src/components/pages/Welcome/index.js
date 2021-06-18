@@ -1,8 +1,11 @@
 import React, {useState} from 'react';
 import styles from './index.module.scss';
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 const Welcome = () => {
+
+    const history = useHistory()
+
     return (
         <>
             {/* Section entête */}
@@ -19,9 +22,17 @@ const Welcome = () => {
                     </p>
 
                     {/* Input group */}
-                    <form name="get-started">
+                    <form name="get-started" onSubmit={event => {
+                        event.preventDefault()
+                        event.persist()
+                        const form = document.forms.namedItem('get-started')
+                        const emailInput = form.querySelector('input[type="email"]')
+                        const email = emailInput.value
+                        localStorage.setItem('rookery_register_email', email)
+                        history.push('/register')
+                    }}>
                         <input type="email" />
-                        <button>Commencer</button>
+                        <button type="submit">Commencer</button>
                     </form>
 
                 </div>

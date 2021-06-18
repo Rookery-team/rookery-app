@@ -50,8 +50,8 @@ const Register = ({handleUserSession}) => {
             .then(res => {
                 if (!res.ok) {
                     setError(
-                       // 'Erreur ! Les informations sont invalides, ou alors votre invitation a expirée'
-                       'Erreur ! Les informations sont invalides.'
+                        // 'Erreur ! Les informations sont invalides, ou alors votre invitation a expirée'
+                        'Erreur ! Les informations sont invalides.'
                     );
                     setWorking(false);
                     return;
@@ -81,6 +81,9 @@ const Register = ({handleUserSession}) => {
             });
     };
 
+    const email = localStorage.getItem('rookery_register_email')
+    localStorage.removeItem('rookery_register_email')
+
     return (
         <View
             inputs={inputs}
@@ -88,6 +91,7 @@ const Register = ({handleUserSession}) => {
             handleSubmit={handleSubmit}
             working={working}
             error={error}
+            email={email}
         />
     );
 };

@@ -20,7 +20,7 @@ const validateForm = (inputs, fields) => {
   return result;
 };
 
-const View = ({ inputs, handleChange, handleSubmit, working, error }) => {
+const View = ({ inputs, email, handleChange, handleSubmit, working, error }) => {
   const formValid = validateForm(inputs, [
     'email',
     'pseudo',
@@ -57,7 +57,6 @@ const View = ({ inputs, handleChange, handleSubmit, working, error }) => {
             <label htmlFor="last_name">Nom</label>
 
             <input
-              autoFocus
               className={styles.control}
               type="text"
               id="last_name"
@@ -70,7 +69,6 @@ const View = ({ inputs, handleChange, handleSubmit, working, error }) => {
             <label htmlFor="pseudo">Pseudo</label>
 
             <input
-              autoFocus
               className={styles.control}
               type="text"
               id="pseudo"
@@ -83,11 +81,11 @@ const View = ({ inputs, handleChange, handleSubmit, working, error }) => {
             <label htmlFor="email">Email</label>
 
             <input
-              autoFocus
               className={styles.control}
               type="text"
               id="email"
               name="email"
+              value={email}
               onChange={handleChange}
             />
           </div>
