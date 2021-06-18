@@ -57,8 +57,12 @@ const Header = ({token, affix}) => {
                                     />
                                 </>}
                                 entries={[
-                                    <Link to="/mon-compte">Compte</Link>,
-                                    <Link to="/centre-aide">Centre d'aide</Link>,
+                                    <Link onClick={event=>{
+                                        alert('Fonctionnalité en cours d\'implémentation')
+                                    }}>Compte</Link>,
+                                    <Link onClick={event=>{
+                                        alert('Fonctionnalité en cours d\'implémentation')
+                                    }}>Centre d'aide</Link>,
                                     <Link onClick={handleClickLogout}>Se deconnecter</Link>,
                                 ]}
                             />
